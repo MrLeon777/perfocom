@@ -3,7 +3,7 @@
   box-sizing: border-box;
 }
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: Calibri, Candara, Segoe, 'Segoe UI', Optima, Arial, sans-serif;
 }
 
 img {
@@ -38,7 +38,7 @@ ul {
       align-items: center;
     }
     &__title {
-      font-size: 20px;
+      font-size: 22px;
       font-weight: 700;
       color: #034ea1;
     }
@@ -61,6 +61,7 @@ ul {
       width: 100%;
       display: flex;
       justify-content: space-between;
+      font-size: 15px;
       &-block {
         display: flex;
         flex-direction: column;
@@ -107,8 +108,8 @@ ul {
       margin-left: -40px;
     }
     &__menu {
-      display: flex; /* используем flex для центрирования содержимого */
-      align-items: center; /* центрируем содержимое кнопки */
+      display: flex;
+      align-items: center;
       position: relative;
       width: 26px;
       height: 26px;
@@ -144,6 +145,14 @@ ul {
         display: flex;
         justify-content: space-between;
         flex-grow: 1;
+        li {
+          border-right: 1px solid #034ea1;
+          padding-right: 25px;
+          &:last-child {
+            padding-right: 0;
+            border-right: 0;
+          }
+        }
       }
     }
   }
@@ -174,7 +183,7 @@ ul {
     }
     video {
       width: 100%;
-      height: 100%;
+      // height: 100%;
     }
   }
   &-content {
@@ -192,8 +201,15 @@ ul {
       text-transform: uppercase;
       margin: 0;
       padding: 0;
+
       li {
         margin-bottom: 25px;
+        width: fit-content;
+        background-color: rgba(71, 71, 71, 0.3);
+        border: 1px solid #fff;
+        border-radius: 20px;
+        padding: 10px;
+        text-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);
         span {
           font-size: 26px;
         }
@@ -209,11 +225,12 @@ ul {
         text-transform: uppercase;
         background-color: rgba(71, 71, 71, 0.3);
         border: 1px solid #fff;
-        border-right: none;
+        // border-right: none;
         padding: 30px 0;
         width: 450px;
         text-align: center;
-        border-radius: 100px 0 0 100px;
+        // border-radius: 100px 0 0 100px;
+        border-radius: 100px;
       }
     }
     &__title {
@@ -223,6 +240,7 @@ ul {
       h1 {
         margin: 0;
         font-size: 60px;
+        font-weight: 400;
       }
     }
   }
@@ -261,8 +279,8 @@ ul {
       &-title {
         position: relative;
         color: #034ea1;
-        font-size: 18px;
-        font-weight: 400;
+        font-size: 22px;
+        font-weight: 700;
         margin-bottom: 40px;
         &:before {
           content: '';
@@ -276,7 +294,7 @@ ul {
       }
       &-description {
         color: #929396;
-        font-size: 14px;
+        font-size: 18px;
         flex: 1 0 auto;
         font-weight: 400;
       }
@@ -284,7 +302,7 @@ ul {
         text-transform: uppercase;
         font-weight: 700;
         a {
-           color: #929396;
+          color: #929396;
         }
       }
     }
@@ -306,8 +324,8 @@ ul {
 .capabilities {
   background: url(../images/capabilities/capabilities-bg.png) no-repeat;
   background-size: cover;
-  padding-top: 60px;
-  padding-bottom: 200px;
+  padding-top: 40px;
+  padding-bottom: 180px;
   h2 {
     text-align: center;
     font-size: 30px;
@@ -320,6 +338,7 @@ ul {
     grid-gap: 25px 15px;
     &__item {
       display: flex;
+
       & > a {
         display: flex;
         align-items: center;
@@ -333,18 +352,21 @@ ul {
       &-title {
         color: #034ea1;
         font-weight: 700;
-        font-size: 15px;
+        font-size: 18px;
       }
     }
   }
 }
 .products {
   background: url(../images/products/products-bg.png) no-repeat;
-  background-position-x: 38px;
+   background-size: cover;
+  background-position: top right;
+  background-position-x: 59px;
   padding-top: 40px;
+  padding-bottom: 20px;
   h2 {
     text-align: center;
-    font-size: 40px;
+    font-size: 36px;
     color: #034ea1;
     margin: 0 0 40px 0;
   }
@@ -389,7 +411,7 @@ ul {
         width: 100%;
         z-index: 10;
         color: #fff;
-        font-size: 20px;
+        font-size: 24px;
         align-self: end;
         text-align: center;
         height: 60px;
@@ -403,11 +425,12 @@ ul {
 }
 .areas {
   background: url(../images/products/products-bg.png) no-repeat;
-  // background-position-x: 38px;
   background-position: bottom right;
+  background-position-x: 79px;
+  background-size: cover;
   color: #034ea1;
   // padding-top: 40px;
-  padding-bottom: 25px;
+  padding-bottom: 45px;
   h2 {
     position: relative;
     font-size: 30px;
@@ -434,27 +457,37 @@ ul {
       margin-right: 30px;
       display: flex;
       flex-direction: column;
-      text-align: end;
-      align-items: flex-end;
-    }
-    &__right {
-      margin-left: 30px;
-      display: flex;
-      flex-direction: column;
-      text-align: left;
-      align-items: start;
-      a {
-        display: flex;
-        flex-direction: row-reverse;
+      .areas-wrapper__item {
+        & > a {
+          .areas-wrapper__item-title {
+            // order: -1;
+            flex-grow: 1;
+          }
+        }
       }
     }
+
     &__item {
+      position: relative;
+      margin-bottom: 10px;
+      transition: linear left 0.2s;
+      left: 0;
+      &:hover {
+        left: 20px;
+        .areas-wrapper__item-img {
+          filter: initial;
+          opacity: 1;
+        }
+      }
       & > a {
         display: flex;
         align-items: center;
         gap: 15px;
       }
       &-img {
+        width: 70px;
+        filter: grayscale(1);
+        opacity: 0.5;
       }
       &-title {
         font-size: 22px;
@@ -466,8 +499,9 @@ ul {
 }
 .about {
   background: url(../images/about/about-bg.png) no-repeat;
-  // background-position-x: 38px;
   background-position: top right;
+  background-position-x: 79px;
+  background-size: cover;
   padding-bottom: 10px;
   h2 {
     position: relative;
@@ -520,7 +554,7 @@ ul {
     h2 {
       color: #fff;
       text-align: center;
-      font-size: 46px;
+      font-size: 36px;
       font-weight: 700;
     }
 
@@ -557,7 +591,7 @@ ul {
         color: #fff;
         background-color: #ec4855;
         text-transform: uppercase;
-        font-size: 30px;
+        font-size: 28px;
         padding: 20px 0;
         border: none;
         outline: none;
@@ -597,6 +631,7 @@ ul {
           transform: translateX(-50%);
           top: auto;
           font-weight: 700;
+          width: fit-content;
         }
       }
     }
@@ -645,6 +680,8 @@ ul {
         }
         &--email {
           background-image: url(../images/footer/mail.svg);
+          display: flex;
+          flex-direction: column;
         }
       }
     }
