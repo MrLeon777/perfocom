@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800;900&display=swap');
 * {
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 body {
   font-family: Calibri, Candara, Segoe, 'Segoe UI', Optima, Arial, sans-serif;
@@ -25,6 +26,11 @@ ul {
   margin: 0 auto;
   padding: 0 15px;
 }
+
+.bg-grey a {
+  background-color: #d0d2d2 !important;
+}
+
 .header {
   &-top {
     background-image: url(../images/header/header-top.svg);
@@ -33,11 +39,37 @@ ul {
     // background-size: cover;
     height: 60px;
     width: 100%;
+    overflow: hidden;
     .container {
       height: 100%;
       display: flex;
       justify-content: flex-end;
       align-items: center;
+      &::before {
+        position: absolute;
+        content: '';
+        /* left: 290px; */
+        left: calc(-100% - 275px);
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url(../images/header/header-top-left__repeat.png);
+        background-repeat: repeat;
+        background-size: contain;
+        background-position-x: right;
+      }
+      &::after {
+        position: absolute;
+        content: '';
+        /* left: 290px; */
+        right: calc(-100% - 260px);
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url(../images/header/header-top-right__repeat.png);
+        background-size: contain;
+        background-position-x: left;
+      }
     }
     &__title {
       font-size: 22px;
@@ -52,11 +84,36 @@ ul {
     // background-size: cover;
     height: 135px;
     margin-top: -5px;
+    overflow: hidden;
     .container {
       height: 100%;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      &::before {
+        position: absolute;
+        content: '';
+        /* left: 290px; */
+        left: calc(-100% - 260px);
+        top: -4px;
+        width: 100%;
+        height: 100%;
+        background-image: url(../images/header/header-middle-left__repeat.png);
+        background-repeat: repeat;
+        background-size: contain;
+        background-position-x: right;
+      }
+      &::after {
+        position: absolute;
+        overflow: hidden;
+        content: '';
+        /* left: 290px; */
+        right: calc(-100% - 260px);
+        top: 1px;
+        width: 100%;
+        height: calc(100% - 2px);
+        background-color: #034ea1;
+      }
     }
     &__info {
       margin-left: 80px;
@@ -129,6 +186,19 @@ ul {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      &::after {
+        position: absolute;
+        content: '';
+        /* left: 290px; */
+        right: calc(-100% - 265px);
+        top: -1px;
+        width: 100%;
+        height: calc(100%);
+        background-image: url(../images/header/header-bottom-right__repeat.png);
+        background-repeat: repeat;
+        overflow: hidden;
+        background-position-x: left;
+      }
     }
     &__img {
       margin-left: -40px;
@@ -204,13 +274,13 @@ ul {
     left: 0;
     overflow: hidden;
     &:before {
-      // content: '';
+      content: '';
       position: absolute;
       bottom: 0;
       left: 0;
       background-color: #034ea1;
       width: 100%;
-      height: 130px;
+      height: 70px;
       -webkit-box-shadow: 0px -30px 50px 60px rgba(3, 78, 161, 1);
       -moz-box-shadow: 0px -30px 50px 60px rgba(3, 78, 161, 1);
       box-shadow: 0px -30px 50px 60px rgba(3, 78, 161, 1);
@@ -231,7 +301,7 @@ ul {
     }
   }
   &-content {
-    padding-top: 60px;
+    padding-top: 30px;
     padding-left: 60px;
     color: #fff;
     display: grid;
@@ -247,7 +317,7 @@ ul {
       padding: 0;
 
       li {
-        margin-bottom: 25px;
+        // margin-bottom: 25px;
         width: fit-content;
         // background-color: rgba(71, 71, 71, 0.3);
         // border: 1px solid #fff;
@@ -262,27 +332,30 @@ ul {
     &__link {
       justify-self: end;
       margin-top: 30px;
+      margin-right: -15px;
+      width: 100%;
+      max-width: 450px;
       a {
+        width: 100%;
         display: inline-block;
         color: #fff;
         font-size: 46px;
         text-transform: uppercase;
         background-color: rgba(71, 71, 71, 0.3);
         border: 1px solid #fff;
-        // border-right: none;
+        border-right: none;
         padding: 30px 0;
-        width: 450px;
         text-align: center;
-        // border-radius: 100px 0 0 100px;
+        border-radius: 100px 0 0 100px;
         transition: all 0.3s;
-        border-radius: 100px;
+        // border-radius: 100px;
         &:hover {
           background-color: rgba(3, 78, 161, 0.9);
         }
       }
     }
     &__title {
-      margin-top: 50px;
+      margin-top: 25px;
       margin-bottom: 30px;
       grid-column: span 2;
       h1 {
@@ -298,6 +371,8 @@ ul {
   background-size: cover;
   padding-bottom: 10px;
 
+  max-width: 1920px;
+  margin: 0 auto;
   &-slider {
     color: #929396;
     font-weight: 700;
@@ -367,6 +442,36 @@ ul {
     }
   }
 }
+.scroll-to-top {
+  position: fixed;
+  height: 65px;
+  width: 65px;
+  right: 28px;
+  bottom: 100px;
+  background-color: #f4f5f7;
+  background-image: url(../images/to-top-arrow.png);
+  background-repeat: no-repeat;
+  background-position: center center;
+  transition: opacity 0.3s ease;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  border-radius: 50%;
+  z-index: 99 !important;
+  &::after {
+    content: "Вернуться в начало";
+    position: absolute;
+    top: 100%;
+    width: 76px;
+    margin-left: -38px;
+    left: 50%;
+    font-size: 14px;
+    text-transform: uppercase;
+    color: rgb(174, 174, 174);
+    margin-top: 6px;
+    line-height: 15px;
+}
+}
 .link-to-page {
   width: fit-content;
   margin: 0 auto;
@@ -393,6 +498,9 @@ ul {
   background-size: cover;
   padding-top: 40px;
   padding-bottom: 180px;
+
+  max-width: 1920px;
+  margin: 0 auto;
   h2 {
     text-align: center;
     font-size: 30px;
@@ -408,7 +516,7 @@ ul {
       transition: linear top 0.2s;
       &:hover {
         a {
-          background-color: #a6cde0;
+          background-color: #a6cde0 !important;
         }
       }
 
@@ -438,6 +546,9 @@ ul {
   background-position-x: 59px;
   padding-top: 40px;
   padding-bottom: 20px;
+
+  max-width: 1920px;
+  margin: 0 auto;
   h2 {
     text-align: center;
     font-size: 36px;
@@ -458,9 +569,22 @@ ul {
         width: 100%;
         height: 100%;
         display: flex;
-        &:hover .products-wrapper__item-img::before {
-          height: 100%;
-          opacity: 0.8;
+        transition: linear all 0.2s;
+        &:hover {
+          flex-direction: column;
+          justify-content: space-between;
+          padding: 15px;
+          .products-wrapper__item-img::before {
+            height: 100%;
+            opacity: 0.8;
+          }
+          .products-wrapper__item-title {
+            text-align: left;
+            justify-content: start;
+          }
+          .products-wrapper__item-link {
+            display: block;
+          }
         }
       }
       &-img {
@@ -499,17 +623,40 @@ ul {
         align-items: center;
         justify-content: center;
       }
+      &-link {
+        z-index: 1;
+        font-size: 15px;
+        font-weight: 600;
+        color: #fff;
+        text-transform: uppercase;
+        display: none;
+        &:after {
+          content: '';
+          display: inline-block;
+          width: 8px;
+          height: 8px;
+          border-right: 2px solid #fff;
+          border-top: 2px solid #fff;
+          transform: rotate(45deg);
+          vertical-align: middle;
+          margin-bottom: 1px;
+          margin-left: 12px;
+        }
+      }
     }
   }
 }
 .areas {
   background: url(../images/products/products-bg.png) no-repeat;
   background-position: bottom right;
-  background-position-x: 79px;
+  background-position-x: 118px;
   background-size: cover;
   color: #034ea1;
   // padding-top: 40px;
   padding-bottom: 45px;
+
+  max-width: 1920px;
+  margin: 0 auto;
   h2 {
     position: relative;
     font-size: 30px;
@@ -551,9 +698,10 @@ ul {
       margin-bottom: 10px;
       transition: all 0.2s;
       padding: 5px;
+      left: 0;
       &:hover {
-        background-color: #d0d2d2;
-
+        // background-color: #d0d2d2;
+        left: -20px;
         .areas-wrapper__item-img {
           filter: initial;
           opacity: 1;
@@ -578,9 +726,12 @@ ul {
   }
 }
 .about {
+  max-width: 1920px;
+  margin: 0 auto;
+
   background: url(../images/about/about-bg.png) no-repeat;
   background-position: top right;
-  background-position-x: 79px;
+  background-position-x: 118px;
   background-size: cover;
   padding-bottom: 10px;
   h2 {
