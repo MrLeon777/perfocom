@@ -20,8 +20,10 @@ ul {
 
 .container {
   position: relative;
-  max-width: 1365px;
+  // max-width: 1365px;
+  max-width: 1392px;
   margin: 0 auto;
+  padding: 0 15px;
 }
 .header {
   &-top {
@@ -66,12 +68,36 @@ ul {
         display: flex;
         flex-direction: column;
         align-items: center;
+        text-align: center;
         span {
           display: flex;
+          &:last-child {
+            flex-direction: column;
+            &:hover {
+              color: #fff;
+              a {
+                color: #fff;
+              }
+            }
+            a {
+              display: flex;
+              align-items: center;
+            }
+          }
+        }
+        a {
+          display: flex;
+          img {
+            margin-right: 5px;
+          }
         }
         span,
         a {
           color: #bbbdbf;
+          transition: ease-in-out color 0.2s;
+          &:hover {
+            color: #fff;
+          }
         }
         p {
           margin: 0;
@@ -148,9 +174,17 @@ ul {
         li {
           border-right: 1px solid #034ea1;
           padding-right: 25px;
+          &:hover {
+            a {
+              color: #57585b;
+            }
+          }
           &:last-child {
             padding-right: 0;
             border-right: 0;
+          }
+          a {
+            transition: ease-in-out color 0.2s;
           }
         }
       }
@@ -166,11 +200,11 @@ ul {
     position: absolute;
     width: 100%;
     height: 100%;
-    top: -2px;
+    top: 0;
     left: 0;
     overflow: hidden;
     &:before {
-      content: '';
+      // content: '';
       position: absolute;
       bottom: 0;
       left: 0;
@@ -180,6 +214,16 @@ ul {
       -webkit-box-shadow: 0px -30px 50px 60px rgba(3, 78, 161, 1);
       -moz-box-shadow: 0px -30px 50px 60px rgba(3, 78, 161, 1);
       box-shadow: 0px -30px 50px 60px rgba(3, 78, 161, 1);
+      z-index: 10;
+    }
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-color: rgba(71, 71, 71, 0.3);
+      width: 100%;
+      height: 100%;
     }
     video {
       width: 100%;
@@ -205,8 +249,8 @@ ul {
       li {
         margin-bottom: 25px;
         width: fit-content;
-        background-color: rgba(71, 71, 71, 0.3);
-        border: 1px solid #fff;
+        // background-color: rgba(71, 71, 71, 0.3);
+        // border: 1px solid #fff;
         border-radius: 20px;
         padding: 10px;
         text-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);
@@ -230,7 +274,11 @@ ul {
         width: 450px;
         text-align: center;
         // border-radius: 100px 0 0 100px;
+        transition: all 0.3s;
         border-radius: 100px;
+        &:hover {
+          background-color: rgba(3, 78, 161, 0.9);
+        }
       }
     }
     &__title {
@@ -278,10 +326,16 @@ ul {
       }
       &-title {
         position: relative;
-        color: #034ea1;
         font-size: 22px;
         font-weight: 700;
         margin-bottom: 40px;
+        a {
+          transition: color 0.2s;
+          &:hover {
+            color: #e70000;
+          }
+        }
+
         &:before {
           content: '';
           position: absolute;
@@ -301,8 +355,13 @@ ul {
       &-next {
         text-transform: uppercase;
         font-weight: 700;
+        font-size: 20px;
         a {
+          transition: color 0.2s;
           color: #929396;
+          &:hover {
+            color: darken(#929396, 20%);
+          }
         }
       }
     }
@@ -315,8 +374,16 @@ ul {
   z-index: 10;
   text-transform: uppercase;
   background-color: #ec4855;
+  border: 1px solid #ec4855;
   padding: 5px 25px;
   margin-top: 20px;
+  transition: ease-in-out all 0.2s;
+  &:hover {
+    background-color: #fff;
+    a {
+      color: #ec4855;
+    }
+  }
   a {
     color: #fff;
   }
@@ -338,6 +405,12 @@ ul {
     grid-gap: 25px 15px;
     &__item {
       display: flex;
+      transition: linear top 0.2s;
+      &:hover {
+        a {
+          background-color: #a6cde0;
+        }
+      }
 
       & > a {
         display: flex;
@@ -345,6 +418,7 @@ ul {
         background-color: #fff;
         padding: 15px 10px;
         flex-grow: 1;
+        transition: ease-in-out background-color 0.2s;
       }
       &-img {
         margin-right: 15px;
@@ -359,7 +433,7 @@ ul {
 }
 .products {
   background: url(../images/products/products-bg.png) no-repeat;
-   background-size: cover;
+  background-size: cover;
   background-position: top right;
   background-position-x: 59px;
   padding-top: 40px;
@@ -384,6 +458,10 @@ ul {
         width: 100%;
         height: 100%;
         display: flex;
+        &:hover .products-wrapper__item-img::before {
+          height: 100%;
+          opacity: 0.8;
+        }
       }
       &-img {
         position: absolute;
@@ -405,6 +483,7 @@ ul {
           -webkit-box-shadow: 0px -10px 20px 20px rgba(3, 78, 161, 1);
           -moz-box-shadow: 0px -10px 20px 20px rgba(3, 78, 161, 1);
           box-shadow: 0px -10px 20px 20px rgba(3, 78, 161, 1);
+          transition: linear all 0.2s;
         }
       }
       &-title {
@@ -470,10 +549,11 @@ ul {
     &__item {
       position: relative;
       margin-bottom: 10px;
-      transition: linear left 0.2s;
-      left: 0;
+      transition: all 0.2s;
+      padding: 5px;
       &:hover {
-        left: 20px;
+        background-color: #d0d2d2;
+
         .areas-wrapper__item-img {
           filter: initial;
           opacity: 1;
@@ -591,11 +671,17 @@ ul {
         color: #fff;
         background-color: #ec4855;
         text-transform: uppercase;
-        font-size: 28px;
+        font-size: 20px;
         padding: 20px 0;
-        border: none;
+        border: 1px solid #ec4855;
         outline: none;
         border-radius: 10px;
+        cursor: pointer;
+        transition: ease-in-out all 0.2s;
+        &:hover {
+          background-color: #fff;
+          color: #ec4855;
+        }
       }
     }
   }
@@ -641,6 +727,10 @@ ul {
         li {
           font-size: 16px;
           margin-bottom: 15px;
+          transition: all 0.2s;
+          &:hover {
+            font-weight: 700;
+          }
           a {
             color: #989ca9;
           }
