@@ -38,11 +38,19 @@ $(function () {
       );
     }
   }
+
+  /* Синие полоски на главное у заголовков */
+
   function blueStripPosition() {
     const UNIT = -(5 / 33);
+    let UNITplus = 0;
+    let calc = (1920 - $(window).width()) * UNIT;
+    if ($(window).width() < 750) {
+      UNITplus = -130;
+    }
     if ($(window).width() < 1920) {
-      $('.areas h2').css('background-position-x', (1920 - $(window).width()) * UNIT);
-      $('.about h2').css('background-position-x', (1920 - $(window).width()) * UNIT);
+      $('.areas h2').css('background-position-x', calc <= -200 ? -200 : calc);
+      $('.about h2').css('background-position-x', calc + UNITplus);
     }
   }
 

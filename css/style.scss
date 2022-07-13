@@ -116,6 +116,9 @@ ul {
         @media (max-width: 800px) {
           width: 150px;
         }
+        @media (max-width: 350px) {
+          width: 130px;
+        }
       }
     }
     &__title {
@@ -282,6 +285,7 @@ ul {
   }
   .header-menu {
     display: flex;
+    flex-shrink: 0;
     align-items: center;
     position: relative;
     width: 26px;
@@ -481,7 +485,7 @@ ul {
         left: 0;
         background-color: #034ea1;
         width: 100%;
-        height: 70px;
+        height: 50px;
         -webkit-box-shadow: 0px -30px 50px 60px rgba(3, 78, 161, 1);
         -moz-box-shadow: 0px -30px 50px 60px rgba(3, 78, 161, 1);
         box-shadow: 0px -30px 50px 60px rgba(3, 78, 161, 1);
@@ -554,6 +558,7 @@ ul {
         max-width: 225px;
       }
       @media (max-width: 600px) {
+        max-width: 150px;
         margin-top: 0;
         grid-column: span 2;
         align-self: end;
@@ -791,12 +796,15 @@ ul {
   background: url(../images/products/products-bg.png) no-repeat;
   // background-size: cover;
   background-position: top right;
-  background-position-x: 59px;
+  background-position-x: 53px;
   padding-top: 40px;
   padding-bottom: 20px;
 
   max-width: 1920px;
   margin: 0 auto;
+  @media (max-width: 1440px) {
+    background-position-x: 51px;
+  }
   @media (max-width: 1340px) {
     background-position-x: 130px;
   }
@@ -919,12 +927,15 @@ ul {
 .areas {
   background: url(../images/products/products-bg.png) no-repeat;
   background-position: bottom right;
-  background-position-x: 107px;
+  background-position-x: 105px;
   color: #034ea1;
   padding-bottom: 45px;
 
   max-width: 1920px;
   margin: 0 auto;
+  @media (max-width: 1440px) {
+    background-position-x: 95px;
+  }
   @media (max-width: 1339px) {
     background-position-x: 387px;
   }
@@ -938,6 +949,11 @@ ul {
     align-items: center;
     justify-content: center;
     background: url(../images/areas/vector-title.png) no-repeat;
+    @media (min-width: 501px) {
+      br {
+        display: none;
+      }
+    }
     @media (max-width: 1170px) {
       background-position-x: -100px;
     }
@@ -1105,7 +1121,9 @@ ul {
         max-width: 240px;
         width: calc(100% / 3);
         img {
-          width: 100%;
+          @media (max-width: 1250px) {
+        width: 100%;
+      }
         }
       }
     }
